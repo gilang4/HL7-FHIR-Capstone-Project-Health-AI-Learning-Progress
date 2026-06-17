@@ -5,15 +5,18 @@ BASE_URL = "https://r4.smarthealthit.org"
 
 # ── 1. GET PATIENT ──────────────────────────────────────
 patient = requests.get(
+        # The code visits the /Patient "room" at the FHIR address.
     f"{BASE_URL}/Patient",
-    params={"_count": 1},
+    params={"_count": 5},
     headers={"Accept": "application/fhir+json"}
 ).json()
 
-# Parse out the first patient
+        # Parse out the first patient
+        # digs through this wrapper (["entry"][0]["resource"]) to get to the actual patient data
 p = patient["entry"][0]["resource"]
 patient_id = p["id"]
 patient_name = p["name"][0]["text"] if "text" in p["name"][0] else "Unknown"
+        # if the birthdate is missing, it prints "Unknown" instead of crashing the script.
 patient_dob = p.get("birthDate", "Unknown")
 
 print(f"👤 Patient: {patient_name} | DOB: {patient_dob} | ID: {patient_id}")
@@ -41,3 +44,25 @@ print("\n💊 Medications:")
 for entry in meds.get("entry", []):
     med = entry["resource"]["medicationCodeableConcept"]["text"]
     print(f"  - {med}")
+
+# ── 4. SAVE TO JSON ──────────────────────────────────────
+output = {
+    "patient": {
+        "id": patient_id,
+        "name": patient_name,
+        "dob": patient_dob
+    },
+    "conditions": [
+        entry["resource"]["code"]["text"]
+        for entry in conditions.get("entry", [])
+    ],
+    "medications": [
+        entry["resource"]["medicationCodeableConcept"]["text"]
+        for entry in meds.get("entry", [])
+    ]
+}
+
+with open("patient_summary.json", "w") as f:
+    json.dump(output, f, indent=2)
+
+print("\n✅ Saved to patient_summary.json")
