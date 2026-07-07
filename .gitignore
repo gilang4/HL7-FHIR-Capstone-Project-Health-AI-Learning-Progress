@@ -3,6 +3,8 @@ credentials.json
 token.json
 run_model.py
 ai_summarizer.py_OLDandWorking
+private_key.pem
+public_key.pem
 
 # Environment variables (secrets)
 .env
