@@ -69,6 +69,7 @@ HL7 FHIR is the global standard for exchanging healthcare data. It enables hospi
 
 ## 📂 Project Structure
 
+```plaintext
 hl7-fhir-capstone/
 ├── 01_fhir_explorer.py          # Basic FHIR queries
 ├── 02_fhir_explorer.py          # Search patients
@@ -83,6 +84,7 @@ hl7-fhir-capstone/
 ├── private_key.pem              # RSA private key (never commit!)
 ├── public_key.pem               # RSA public key
 └── README.md                    # This file
+```
 
 ---
 
