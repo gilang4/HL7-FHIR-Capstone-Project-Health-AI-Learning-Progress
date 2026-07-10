@@ -1,13 +1,13 @@
 import requests
 import json
+from datetime import datetime
 
 BASE_URL = "https://r4.smarthealthit.org"
 
 # ── 1. GET PATIENT ──────────────────────────────────────
 patient = requests.get(
-        # The code visits the /Patient "room" container at the FHIR address.
     f"{BASE_URL}/Patient",
-    params={"_count": 5},
+    params={"_count": 1},
     headers={"Accept": "application/fhir+json"}
 ).json()
 
@@ -99,8 +99,12 @@ conditions = requests.get(
     params={"patient": patient_id, "_count": 10},
     headers={"Accept": "application/fhir+json"}
 ).json()
+condition_list = []
+for entry in conditions.get("entry", []):
+    code = entry["resource"].get("code", {}).get("text", "Unknown")
+    condition_list.append(code)
 
-print("\n🏥 Conditions:")
+print(f"🏥 Conditions: {condition_list}")
 """
                             ##### the json sturcture #####
 
@@ -133,7 +137,7 @@ print("\n🏥 Conditions:")
                             ##### the json sturcture #####
 
 """
-
+    ### careful here....need to revisit
 for entry in conditions.get("entry", []):
     code = entry["resource"]["code"]["text"]
     print(f"  - {code}")
@@ -144,30 +148,95 @@ meds = requests.get(
     params={"patient": patient_id, "_count": 5},
     headers={"Accept": "application/fhir+json"}
 ).json()
-
-print("\n💊 Medications:")
+med_list = []
 for entry in meds.get("entry", []):
-    med = entry["resource"]["medicationCodeableConcept"]["text"]
-    print(f"  - {med}")
+    med = entry["resource"].get("medicationCodeableConcept", {}).get("text", "Unknown")
+    med_list.append(med)
 
-# ── 4. SAVE TO JSON ──────────────────────────────────────
+print(f"💊 Medications: {med_list}")
+
+# ── 4. GET OBSERVATIONS (LABS + VITALS) ────────────────
+def get_observations(patient_id, category):
+    """Fetch Observations by category: 'laboratory' or 'vital-signs'"""
+    obs = requests.get(
+        f"{BASE_URL}/Observation",
+        params={"patient": patient_id, "category": category, "_count": 20},
+        headers={"Accept": "application/fhir+json"}
+    ).json()
+    
+    results = []
+    for entry in obs.get("entry", []):
+        resource = entry["resource"]
+        code = resource.get("code", {}).get("text", "Unknown")
+        # Get value (could be Quantity, CodeableConcept, or just text)
+        value = "Unknown"
+        if "valueQuantity" in resource:
+            value = f"{resource['valueQuantity']['value']} {resource['valueQuantity'].get('unit', '')}"
+        elif "valueCodeableConcept" in resource:
+            value = resource["valueCodeableConcept"].get("text", "Unknown")
+        elif "valueString" in resource:
+            value = resource["valueString"]
+        
+        # Get date if available
+        date = resource.get("effectiveDateTime", "Unknown")
+        
+        results.append({
+            "code": code,
+            "value": value,
+            "date": date
+        })
+    return results
+
+labs = get_observations(patient_id, "laboratory")
+vitals = get_observations(patient_id, "vital-signs")
+
+print(f"🧪 Labs: {len(labs)} entries")
+print(f"❤️ Vitals: {len(vitals)} entries")
+
+# ── 5. GET ENCOUNTERS ──────────────────────────────────
+encounters = requests.get(
+    f"{BASE_URL}/Encounter",
+    params={"patient": patient_id, "_count": 10},
+    headers={"Accept": "application/fhir+json"}
+).json()
+
+encounter_list = []
+for entry in encounters.get("entry", []):
+    res = entry["resource"]
+    enc_id = res.get("id", "Unknown")
+    status = res.get("status", "Unknown")
+    cls = res.get("class", {}).get("code", "Unknown")
+    period = res.get("period", {})
+    start = period.get("start", "Unknown")
+    encounter_list.append({
+        "id": enc_id,
+        "status": status,
+        "class": cls,
+        "start": start
+    })
+
+print(f"🏨 Encounters: {len(encounter_list)} visits")
+
+
+
+    ############################
+
+
+# ── 6. SAVE TO JSON ──────────────────────────────────────
 output = {
     "patient": {
         "id": patient_id,
         "name": patient_name,
         "dob": patient_dob
     },
-    "conditions": [
-        entry["resource"]["code"]["text"]
-        for entry in conditions.get("entry", [])
-    ],
-    "medications": [
-        entry["resource"]["medicationCodeableConcept"]["text"]
-        for entry in meds.get("entry", [])
-    ]
+    "conditions": condition_list,
+    "medications": med_list,
+    "labs": labs,
+    "vitals": vitals,
+    "encounters": encounter_list
 }
 
 with open("patient_summary.json", "w") as f:
     json.dump(output, f, indent=2)
 
-print("\n✅ Saved to patient_summary.json")
+print("\n✅ Saved expanded patient data to patient_summary.json")

@@ -6,6 +6,7 @@ epic_client.py
 ai_summarizer.py_OLDandWorking
 private_key.pem
 public_key.pem
+JOURNEY_OF_Hoops.md
 
 # Environment variables (secrets)
 .env

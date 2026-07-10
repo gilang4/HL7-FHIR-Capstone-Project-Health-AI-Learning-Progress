@@ -15,7 +15,6 @@ def setup_oauth():
         # for ipynb, with path including "space" characters, this grab the current folder these files are in, bypass all the problem of empty string
     script_dir = Path.cwd()
 
-
         # Deconstruct the OAuth 2.0 Flow
 
             # Concept 1: The Problem (Password Auth sucks) -> Solution (Token-based Auth)

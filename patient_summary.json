@@ -1,25 +1,284 @@
 {
   "patient": {
-    "id": "d4fb3bba-73a9-4b82-a0bc-678d47f386b4",
+    "id": "64cee79e-2414-482a-94e7-e7223936f904",
     "name": "Unknown",
-    "dob": "1980-08-31"
+    "dob": "1953-07-11"
   },
   "conditions": [
+    "Viral sinusitis (disorder)",
+    "Osteoporosis (disorder)",
     "Acute viral pharyngitis (disorder)",
-    "Hypertension",
-    "Viral sinusitis (disorder)",
-    "Viral sinusitis (disorder)",
-    "Miscarriage in first trimester",
-    "Chronic pain",
-    "Viral sinusitis (disorder)",
-    "Body mass index 30+ - obesity (finding)",
-    "Chronic intractable migraine without aura",
-    "Impacted molars"
+    "Acute viral pharyngitis (disorder)",
+    "Anemia (disorder)",
+    "Prediabetes"
   ],
   "medications": [
-    "Hydrochlorothiazide 25 MG",
-    "Camila 28 Day Pack",
-    "1 ML medroxyprogesterone acetate 150 MG/ML Injection",
-    "NuvaRing 0.12/0.015 MG per 24HR 21 Day Vaginal Ring"
+    "Alendronic acid 10 MG Oral Tablet"
+  ],
+  "labs": [
+    {
+      "code": "Sodium",
+      "value": "142.49205374280115 mmol/L",
+      "date": "2013-10-20T03:32:04+00:00"
+    },
+    {
+      "code": "Creatinine",
+      "value": "1.144636390445751 mg/dL",
+      "date": "2013-10-20T03:32:04+00:00"
+    },
+    {
+      "code": "Carbon Dioxide",
+      "value": "22.27782610166904 mmol/L",
+      "date": "2013-10-20T03:32:04+00:00"
+    },
+    {
+      "code": "Triglycerides",
+      "value": "149.78503146050113 mg/dL",
+      "date": "2015-11-01T03:32:04+00:00"
+    },
+    {
+      "code": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "value": "5.86931334018925 %",
+      "date": "2019-11-24T03:32:04+00:00"
+    },
+    {
+      "code": "Chloride",
+      "value": "101.50275808972849 mmol/L",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Calcium",
+      "value": "9.68205976090713 mg/dL",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Creatinine",
+      "value": "0.920615371548147 mg/dL",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Glucose",
+      "value": "89.36554686211187 mg/dL",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Triglycerides",
+      "value": "133.49762134721632 mg/dL",
+      "date": "2012-10-14T03:32:04+00:00"
+    },
+    {
+      "code": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "value": "5.831297597943 %",
+      "date": "2011-10-09T03:32:04+00:00"
+    },
+    {
+      "code": "Low Density Lipoprotein Cholesterol",
+      "value": "95.83978281581741 mg/dL",
+      "date": "2015-11-01T03:32:04+00:00"
+    },
+    {
+      "code": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "value": "5.8296822753908435 %",
+      "date": "2020-11-29T03:32:04+00:00"
+    },
+    {
+      "code": "Creatinine",
+      "value": "1.0303557539369281 mg/dL",
+      "date": "2015-11-01T03:32:04+00:00"
+    },
+    {
+      "code": "Glucose",
+      "value": "71.21544348824092 mg/dL",
+      "date": "2015-11-01T03:32:04+00:00"
+    },
+    {
+      "code": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "value": "6.314703848138068 %",
+      "date": "2014-10-26T03:32:04+00:00"
+    },
+    {
+      "code": "Calcium",
+      "value": "9.46164570470423 mg/dL",
+      "date": "2015-11-01T03:32:04+00:00"
+    },
+    {
+      "code": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "value": "6.1211897350241085 %",
+      "date": "2013-10-20T03:32:04+00:00"
+    },
+    {
+      "code": "Hemoglobin A1c/Hemoglobin.total in Blood",
+      "value": "5.968907727265135 %",
+      "date": "2012-10-14T03:32:04+00:00"
+    },
+    {
+      "code": "Calcium",
+      "value": "8.915795121552032 mg/dL",
+      "date": "2013-10-20T03:32:04+00:00"
+    }
+  ],
+  "vitals": [
+    {
+      "code": "Body Height",
+      "value": "177.8159251493942 cm",
+      "date": "2017-11-12T03:32:04+00:00"
+    },
+    {
+      "code": "Body Weight",
+      "value": "88.37907566862211 kg",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Pain severity - 0-10 verbal numeric rating [Score] - Reported",
+      "value": "1.7959303888080878 {score}",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Body Mass Index",
+      "value": "27.951694932207186 kg/m2",
+      "date": "2019-11-24T03:32:04+00:00"
+    },
+    {
+      "code": "Blood Pressure",
+      "value": "Unknown",
+      "date": "2015-11-01T03:32:04+00:00"
+    },
+    {
+      "code": "Oral temperature",
+      "value": "37.60842896131264 Cel",
+      "date": "2013-07-20T03:32:04+00:00"
+    },
+    {
+      "code": "Oral temperature",
+      "value": "37.34014299164179 Cel",
+      "date": "2018-06-07T03:32:04+00:00"
+    },
+    {
+      "code": "Body Weight",
+      "value": "95.10976190187029 kg",
+      "date": "2013-10-20T03:32:04+00:00"
+    },
+    {
+      "code": "Body Mass Index",
+      "value": "30.080412469167744 kg/m2",
+      "date": "2014-10-26T03:32:04+00:00"
+    },
+    {
+      "code": "Body Height",
+      "value": "177.8159251493942 cm",
+      "date": "2019-11-24T03:32:04+00:00"
+    },
+    {
+      "code": "Body Mass Index",
+      "value": "29.671043712059944 kg/m2",
+      "date": "2016-11-06T03:32:04+00:00"
+    },
+    {
+      "code": "Blood Pressure",
+      "value": "Unknown",
+      "date": "2011-10-09T03:32:04+00:00"
+    },
+    {
+      "code": "Pain severity - 0-10 verbal numeric rating [Score] - Reported",
+      "value": "0.5533201936356509 {score}",
+      "date": "2017-11-12T03:32:04+00:00"
+    },
+    {
+      "code": "Body Height",
+      "value": "177.8159251493942 cm",
+      "date": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "code": "Body Mass Index",
+      "value": "30.080412469167744 kg/m2",
+      "date": "2012-10-14T03:32:04+00:00"
+    },
+    {
+      "code": "Body Mass Index",
+      "value": "30.080412469167744 kg/m2",
+      "date": "2011-10-09T03:32:04+00:00"
+    },
+    {
+      "code": "Blood Pressure",
+      "value": "Unknown",
+      "date": "2017-11-12T03:32:04+00:00"
+    },
+    {
+      "code": "Blood Pressure",
+      "value": "Unknown",
+      "date": "2019-11-24T03:32:04+00:00"
+    },
+    {
+      "code": "Body Weight",
+      "value": "88.37907566862211 kg",
+      "date": "2017-11-12T03:32:04+00:00"
+    },
+    {
+      "code": "Pain severity - 0-10 verbal numeric rating [Score] - Reported",
+      "value": "3.8998357977455593 {score}",
+      "date": "2014-10-26T03:32:04+00:00"
+    }
+  ],
+  "encounters": [
+    {
+      "id": "8581bec0-6912-45af-bc8d-deb3482dff1a",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2016-11-22T03:32:04+00:00"
+    },
+    {
+      "id": "c1dd3e7e-5e07-4f84-b0dc-e2cc083275e8",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2018-06-07T03:32:04+00:00"
+    },
+    {
+      "id": "985a13d6-2b7c-43df-ae36-b190ebe6f556",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2013-07-20T03:32:04+00:00"
+    },
+    {
+      "id": "2d51e6e0-9f2e-415d-a7cc-5ed052a538f2",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2016-11-06T03:32:04+00:00"
+    },
+    {
+      "id": "bbac3b1e-0ca6-4cef-aad9-48d03b2bdf8f",
+      "status": "finished",
+      "class": "AMB",
+      "start": "1973-07-08T03:32:04+00:00"
+    },
+    {
+      "id": "7f40634d-c961-495a-9dc5-fcb5a5f0f884",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2013-10-20T03:32:04+00:00"
+    },
+    {
+      "id": "d269ed69-6678-49e7-b155-75df617f8ae6",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2011-10-09T03:32:04+00:00"
+    },
+    {
+      "id": "cfdd6e1f-545b-4543-9557-2c0fac115583",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2020-11-29T03:32:04+00:00"
+    },
+    {
+      "id": "90552860-e6da-409b-9372-4f5b55bfd8d9",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2018-11-18T03:32:04+00:00"
+    },
+    {
+      "id": "247cc8e1-e213-430d-9e6c-a83a16fe30d0",
+      "status": "finished",
+      "class": "AMB",
+      "start": "2015-11-01T03:32:04+00:00"
+    }
   ]
 }
